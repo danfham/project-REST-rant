@@ -10,6 +10,7 @@
     "babel-plugin-polyfill-corejs3": "^0.8.2",
     "babel-plugin-polyfill-regenerator": "^0.5.1",
     "balanced-match": "^1.0.2",
+    "body-parser": "^1.20.2",
     "brace-expansion": "^2.0.1",
     "browserslist": "^4.21.9",
     "buffer-from": "^1.1.2",
