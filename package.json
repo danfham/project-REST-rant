@@ -61,6 +61,7 @@
     "make-dir": "^2.1.0",
     "method-override": "^3.0.0",
     "minimatch": "^5.1.6",
+    "mongoose": "^7.4.1",
     "ms": "^2.1.2",
     "node-releases": "^2.0.13",
     "nopt": "^6.0.0",
