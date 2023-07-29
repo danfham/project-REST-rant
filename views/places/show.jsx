@@ -29,8 +29,8 @@ function show (data) {
                       Serving {data.place.cuisines}
                     </h4>
                   </div>
+                <a href={`/places/${data.place.0..0.41id}/edit`} className="btn btn-warning"> 
                 </div>
-                <a href={`/places/${data.place.id}/edit`} className="btn btn-warning"> 
                   Edit
                 </a>  
                 <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> 
