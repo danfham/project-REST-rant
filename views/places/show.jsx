@@ -7,6 +7,20 @@ function show (data) {
         No comments yet!
       </h3>
     )
+    if (data.place.comments.length) {
+      comments = data.place.comments.map(c => {
+        return (
+          <div className="border">
+            <h2 className="rant">{c.rant ? 'Rant!' : 'Rave!'}</h2>
+            <h4>{c.content}</h4>
+            <h3>
+              <stong>- {c.author}</stong>
+            </h3>
+            <h4>Rating: {c.stars}</h4>
+          </div>
+        )
+      })
+    }
     return (
             <Def>
               <main>
@@ -29,8 +43,8 @@ function show (data) {
                       Serving {data.place.cuisines}
                     </h4>
                   </div>
-                <a href={`/places/${data.place.0..0.41id}/edit`} className="btn btn-warning"> 
                 </div>
+                <a href={`/places/${data.place.id}/edit`} className="btn btn-warning"> 
                   Edit
                 </a>  
                 <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> 
@@ -40,7 +54,21 @@ function show (data) {
                 </form>  
                 <hr /> 
                 <h2>Comments</h2>
-                {comments}  
+                  {comments}  
+                <form method="POST" action={`/places/${data.place.id}/comment`}>
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" />
+                <label for="content">Leave your mark!</label>
+                <input type="textArea" id="content" name="content" />
+                <label for="stars">Give it a rating:</label>
+                <input type="number" step={0.5} id="stars" name="stars" min={0} />
+                <label for="rant">Rant?</label> 
+                <input type="checkbox" id="rant" name="rant" />
+                         
+                <button type="submit" className='btn btn-primary'>
+                  Submit your comment
+                </button>   
+                </form>
               </main>
             </Def>
 
@@ -48,3 +76,5 @@ function show (data) {
 }
 
 module.exports = show
+
+

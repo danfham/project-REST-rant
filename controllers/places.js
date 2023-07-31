@@ -34,7 +34,9 @@ router.get('/new', (req, res) => {
 
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
+  .populate('comments')
   .then(place => {
+      console.log(place.comments)
       res.render('places/show', { place })
   })
   .catch(err => {
@@ -76,7 +78,7 @@ router.get('/:id/edit', (req, res) => {
       })
 })
 
-router.post('/:id/rant', (req, res) => {
+router.post('/:id/comment', (req, res) => {
   console.log('post comment', req.body)
   if (req.body.author === '') { req.body.author = undefined }
   req.body.rant = req.body.rant ? true : false
